@@ -489,7 +489,12 @@
                 skillset: 20,
                 toolset: 10,
                 details: 'Introducción al pensamiento emprendedor. Talleres de sensibilización y exploración de oportunidades.',
-                support: 'Experiencias base estandarizadas - Modelo one-size-fits-all'
+                support: 'Experiencias base estandarizadas - Modelo one-size-fits-all',
+                ufItems: [
+                    'EM1001S ST Emprende con propósito',
+                    'EM1002B Emprendimiento social innovador',
+                    'H1063 Argumentación, debate y el arte de hablar en público'
+                ]
             },
             2: {
                 phase: 'conocer',
@@ -497,7 +502,12 @@
                 skillset: 30,
                 toolset: 15,
                 details: 'Desarrollo de empatía y pensamiento crítico. Identificación de problemáticas sociales y ambientales.',
-                support: 'Crash courses y talleres introductorios escalables'
+                support: 'Crash courses y talleres introductorios escalables',
+                ufItems: [
+                    'EM1001S ST Emprende con propósito',
+                    'EM1002B Emprendimiento social innovador',
+                    'H1063 Argumentación, debate y el arte de hablar en público'
+                ]
             },
             3: {
                 phase: 'conocer',
@@ -505,7 +515,12 @@
                 skillset: 40,
                 toolset: 25,
                 details: 'Primeros ejercicios de ideación. Proyectos acotados de impacto social.',
-                support: 'Retos cortos de innovación y experiencias grupales'
+                support: 'Retos cortos de innovación y experiencias grupales',
+                ufItems: [
+                    'EM1001S ST Emprende con propósito',
+                    'EM1002B Emprendimiento social innovador',
+                    'H1063 Argumentación, debate y el arte de hablar en público'
+                ]
             },
             4: {
                 phase: 'ejercitar',
@@ -513,7 +528,14 @@
                 skillset: 60,
                 toolset: 40,
                 details: 'Prototipado básico y trabajo en equipo. Metodologías de innovación aplicadas.',
-                support: 'Acompañamiento más personalizado y específico'
+                support: 'Acompañamiento más personalizado y específico',
+                ufItems: [
+                    'TM3004C Comunicación estratégica aplicada',
+                    'TM2004B Proyecto de producción musical',
+                    'DL1023 Innovación y procesos creativos',
+                    'EM1001B Ideación y prototipado',
+                    'Evento ABC del freelance'
+                ]
             },
             5: {
                 phase: 'ejercitar',
@@ -521,7 +543,14 @@
                 skillset: 75,
                 toolset: 55,
                 details: 'Gestión de proyectos y comunicación persuasiva. Vinculación con el entorno empresarial.',
-                support: 'Guías especializadas y herramientas específicas'
+                support: 'Guías especializadas y herramientas específicas',
+                ufItems: [
+                    'TM3004C Comunicación estratégica aplicada',
+                    'TM2004B Proyecto de producción musical',
+                    'DL1023 Innovación y procesos creativos',
+                    'EM1001B Ideación y prototipado',
+                    'Evento ABC del freelance'
+                ]
             },
             6: {
                 phase: 'ejercitar',
@@ -529,7 +558,14 @@
                 skillset: 85,
                 toolset: 70,
                 details: 'Proyectos con propósito claro. Negociación y liderazgo de equipos.',
-                support: 'Mentorías personalizadas y networking dirigido'
+                support: 'Mentorías personalizadas y networking dirigido',
+                ufItems: [
+                    'AV3004C Publicidad estrategia creativa y producción',
+                    'TM300C Audio en vivo',
+                    'EH2002C Emprendimiento en las industrias creativas y culturales',
+                    'EM 2025 Estancia de emprendimiento',
+                    'TM2004B Proyecto integrador LC, LEI, LLE, LPE, LTM'
+                ]
             },
             7: {
                 phase: 'accionar',
@@ -537,7 +573,14 @@
                 skillset: 90,
                 toolset: 85,
                 details: 'Desarrollo de proyectos de alto impacto. Aplicación integral de metodologías ágiles.',
-                support: 'Scouting de talentos - Identificación de alto potencial'
+                support: 'Scouting de talentos - Identificación de alto potencial',
+                ufItems: [
+                    'AV3004C Publicidad estrategia creativa y producción',
+                    'TM300C Audio en vivo',
+                    'EH2002C Emprendimiento en las industrias creativas y culturales',
+                    'EM 2025 Estancia de emprendimiento',
+                    'TM2004B Proyecto integrador LC, LEI, LLE, LPE, LTM'
+                ]
             },
             8: {
                 phase: 'accionar',
@@ -545,7 +588,14 @@
                 skillset: 95,
                 toolset: 100,
                 details: 'Proyectos escalables con potencial de startup. Aportaciones tangibles a la comunidad.',
-                support: 'Aceleración de proyectos - Habilitación para centros de excelencia'
+                support: 'Aceleración de proyectos - Habilitación para centros de excelencia',
+                ufItems: [
+                    'AV3004C Publicidad estrategia creativa y producción',
+                    'TM300C Audio en vivo',
+                    'EH2002C Emprendimiento en las industrias creativas y culturales',
+                    'EM 2025 Estancia de emprendimiento',
+                    'TM2004B Proyecto integrador LC, LEI, LLE, LPE, LTM'
+                ]
             }
         };
 
@@ -605,10 +655,18 @@
             // Update details with phase-specific styling
             const detailsContainer = document.getElementById('semesterDetails');
             detailsContainer.className = `semester-details ${data.phase}-phase`;
+            
+            // Create UF items list
+            const ufItemsList = data.ufItems.map(item => `<li>${item}</li>`).join('');
+            
             detailsContainer.innerHTML = `
                 <h3>Semestre ${currentSemester} - ${data.phase.charAt(0).toUpperCase() + data.phase.slice(1)}</h3>
-                <p><strong>Enfoque:</strong> ${data.details}</p>
-                <span class="example-label">📋 Ejemplo de temáticas abordadas</span>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #2D3B87; font-weight: 600; margin-bottom: 10px;">🎯 UF Estratégicas EHE</h4>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+                        ${ufItemsList}
+                    </ul>
+                </div>
             `;
 
             // Update support model
